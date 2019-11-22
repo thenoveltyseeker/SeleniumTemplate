@@ -24,10 +24,10 @@ This template provides the following features:
 - All the `WebDriver` related functions are available in `Browswer` utility class.
 - Getting a `WebElement` is as easy as providing the `ByType` and value   
 - You can manage the type of browser by using the enums form `WebDriverType`. By Default the type will be Chrome, if you want to change it you can do by overriding it in your child class.
-```   
+```java   
 @Override
 protected WebDriverType getWebDriverType() {
-  return WebDriverType.FIREFOX;
+  return WebDriverType.CHROME;
 }
 ```
 - You have to implement `execute()` from the `BaseTest`, the execution of each class will start from that method.
@@ -36,7 +36,7 @@ protected WebDriverType getWebDriverType() {
 
 ### Sample test case class.
 
-```
+```java
 public class SampleTestCase extends BaseTest {
 
     @Override
@@ -54,6 +54,7 @@ public class SampleTestCase extends BaseTest {
     @Test(priority = 1)
     public void loadImageTab() {
         Browser.performElementClick(ByType.XPATH, "//*[@id=\"hdtb-msb-vis\"]/div[3]/a");
+        shouldStopDriver = true;
     }
 }
 ```
